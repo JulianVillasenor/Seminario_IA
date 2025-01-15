@@ -6,7 +6,7 @@ El proyecto sera un sistema de recomendaciones, para esto se necesitaran obtener
 import random
 import pandas as pd
 
-# Categorías y productos
+### Categorías y productos
 categories = {
     "pizzas": ["Margherita", "Pepperoni", "Hawaiana", "Veggie", "Marinara"],
     "hamburguesas": ["Clásica", "Cheeseburger", "BBQ Burger", "Veggie Burger"],
@@ -18,7 +18,7 @@ categories = {
     "cervezas": ["IPA", "Pale Ale", "Lager", "Stout"]
 }
 
-# Generar productos
+### Generar productos
 products = []
 product_id = 1
 for category, items in categories.items():
@@ -33,7 +33,7 @@ for category, items in categories.items():
         })
         product_id += 1
 
-# Generar usuarios
+### Generar usuarios
 users = [
     {
         "user_id": user_id,
@@ -44,7 +44,7 @@ users = [
     for user_id in range(1, 21)
 ]
 
-# Generar interacciones
+### Generar interacciones
 interactions = []
 for _ in range(100):  # Generar 100 interacciones
     user = random.choice(users)
@@ -56,12 +56,12 @@ for _ in range(100):  # Generar 100 interacciones
         "timestamp": pd.Timestamp.now()
     })
 
-# Convertir a DataFrames
+### Convertir a DataFrames
 products_df = pd.DataFrame(products)
 users_df = pd.DataFrame(users)
 interactions_df = pd.DataFrame(interactions)
 
-# Guardar como CSV
+### Guardar como CSV
 products_df.to_csv("productos.csv", index=False)
 users_df.to_csv("usuarios.csv", index=False)
 interactions_df.to_csv("interacciones.csv", index=False)
